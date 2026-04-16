@@ -3283,6 +3283,9 @@ def style_dataframe(df, color_column=None, gradient_columns=None):
                 pass
     
     # Renk sütunu - Mavi tonlarında
+
+
+    # Renk sütunu - Mavi tonlarında
     if color_column and color_column in numeric_data.columns:
         def color_cells(val):
             try:
@@ -3296,7 +3299,8 @@ def style_dataframe(df, color_column=None, gradient_columns=None):
             except:
                 return ''
         
-        styled_df = styled_df.applymap(color_cells, subset=[color_column])
+        styled_df = styled_df.map(color_cells, subset=[color_column])  # applymap → map
+        
     
     # Alternatif satır renkleri
     styled_df = styled_df.set_table_styles([{
